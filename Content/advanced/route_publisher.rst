@@ -42,6 +42,8 @@ it will first look for:
 Examples
 --------
 
+**bird.conf (for both BGP and OSPF)**
+
 
 ::
 
@@ -68,6 +70,8 @@ Examples
 -  The ``include`` line is the hook to load the generated dynamic
    config. It should be in your ``bird.conf`` exactly as specified.
 
+**publisher.conf for OSPF**
+
 
 ::
 
@@ -93,6 +97,8 @@ Examples
 -  The interface names will need to be modified to match the node's
    actual interfaces
 -  Add any additional, protocol-specific BIRD configuration to this file
+
+**publisher.conf for BGP**
 
 
 ::
@@ -122,6 +128,7 @@ Examples
 -  bird.conf.192.168.35.0
 
 Installation
+------------
 
 First, the configuration files need to be loaded into a ``configmap``.
 
@@ -143,6 +150,7 @@ your master node.
     kubectl apply -f romana-route-publisher.yaml
 
 Verification
+------------
 
 Check that route publisher pods are running correctly
 
