@@ -1,19 +1,19 @@
-Romana Release v1.0 Documentation 
+Romana Release v2.0 Documentation 
 =================================
 
 .. toctree::
    :maxdepth: 2
 
-   intro
-   Content/romana
-   Content/topology
-   Content/policies
-   Content/vips
-   Content/dns
-   Content/route_publisher
-   Content/kubernetes
-   Content/components
-   Content/network-topology
+   readme
+   Content/romana/readme
+   Content/romana/topology
+   Content/romana/policies
+   Content/romana/vips
+   Content/romana/dns
+   Content/romana/route_publisher
+   Content/kubernetes/readme
+   Content/kubernetes/components
+   Content/kubernetes/network-topology
    Content/contact
 
 

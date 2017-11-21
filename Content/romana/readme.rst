@@ -179,7 +179,7 @@ no new block allocation was necessary in that case, an no additional
 routes had to be configured. This image illustrates the state at this
 point:
 
-.. figure:: img/fig1.png
+.. figure:: ../img/fig1.png
    :alt: State in a the cluster after third endpoint was created
 
    State in a the cluster after third endpoint was created
@@ -221,7 +221,7 @@ often the case if the ToR acts as a switch for the hosts in the rack and
 is called 'L2-to-the-host'. This image illustrates the route
 configuration for that case:
 
-.. figure:: img/fig2.png
+.. figure:: ../img/fig2.png
    :alt: Routes in an L2-to-the-host data center
 
    Routes in an L2-to-the-host data center
@@ -231,7 +231,7 @@ not share an L2 segment. In that case, block routes only need to be
 created on the ToR. The following image shows where routes are created
 in an L3-to-the-host data center:
 
-.. figure:: img/fig3.png
+.. figure:: ../img/fig3.png
    :alt: Routes in an L3-to-the-host data center
 
    Routes in an L3-to-the-host data center
