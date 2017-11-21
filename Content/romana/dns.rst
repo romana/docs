@@ -1,11 +1,11 @@
 Romana DNS
-==========
+~~~~~~~~~~
 
 Romana DNS adds DNS support for Romana VIPs. It is drop in replacement
 for kube-dns.
 
-Installtion steps
-~~~~~~~~~~~~~~~~~
+Installtion
+-----------
 
 On Master node of kubernetes cluster
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,5 +1,5 @@
 Romana VIPs
-===========
+~~~~~~~~~~~
 
 Kubernetes users running on premises that want an easy way to expose
 their services outside a cluster on their datacenter network can use
@@ -30,7 +30,7 @@ segment. Addresses for Romana VIPs must be manually provisioned on the
 network.
 
 Example configuration and yaml file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 The example below shows a RomanaIP (192.168.99.101) configured on a node
 for the nginx service by adding the ``romanaip`` annotation to the spec.
