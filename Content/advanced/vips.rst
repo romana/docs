@@ -29,8 +29,8 @@ Romana VIP failover requires that all nodes be on the same network
 segment. Addresses for Romana VIPs must be manually provisioned on the
 network.
 
-Example configuration and yaml file
------------------------------------
+Example configuration
+---------------------
 
 The example below shows a RomanaIP (192.168.99.101) configured on a node
 for the nginx service by adding the ``romanaip`` annotation to the spec.

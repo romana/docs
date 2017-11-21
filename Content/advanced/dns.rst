@@ -4,11 +4,11 @@ Romana DNS
 Romana DNS adds DNS support for Romana VIPs. It is drop in replacement
 for kube-dns.
 
-Installtion
------------
+Installation
+------------
 
-On Master node of kubernetes cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**On Master node of kubernetes cluster**
+
 
 -  Make a note on number of replicas for kube-dns using following
    command:
@@ -25,8 +25,8 @@ On Master node of kubernetes cluster
 
 -  Wait till kube-dns replicas are zero (around a minute or so)
 
-On All nodes i.e master and compute nodes of the kubernetes cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**On All nodes i.e master and compute nodes of the kubernetes cluster**
+
 
 -  Remove earlier docker images and replace it romana one using commands
    below:
@@ -39,8 +39,8 @@ On All nodes i.e master and compute nodes of the kubernetes cluster
 
 -  Now return back to master node for further commands
 
-On Master node of kubernetes cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**On Master node of kubernetes cluster**
+
 
 -  Now assuming you had 2 replicas before, from first step above, we
    restore the replica count for kube-dns as follows:
@@ -52,7 +52,7 @@ On Master node of kubernetes cluster
 -  Wait for a minute or so for the pod to come up and we have romanaDNS
    up and running.
 
-Testing
+DNS Testing
 -------
 
 -  Run dig to see if dns is working properly using command:
@@ -75,8 +75,8 @@ Testing
 
        dig @10.96.0.10 +short nginx.default.svc.cluster.local
 
-Sample Results
-~~~~~~~~~~~~~~
+Sample DNS Results
+------------------
 
 ::
 

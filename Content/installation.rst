@@ -1,8 +1,5 @@
-Romana on Kubernetes
-====================
-
 Installation
-------------
+============
 
 Installing Romana on a Kubernetes cluster is fast and easy.
 

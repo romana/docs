@@ -104,6 +104,3 @@ Example:
         }]
     }
 
-.. include:: ./vips.rst
-
-.. include:: ./dns.rst

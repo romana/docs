@@ -1,5 +1,5 @@
-Components
-==========
+Romana Components
+=================
 
 An installation of Romana on Kubernetes has a number of essential
 components, and some add-on components for specific cloud providers.
@@ -267,8 +267,10 @@ node(s) are *tainted* to prevent pods being scheduled there, the
 ``romana-agent`` daemonset template should include the matching
 ``toleration`` to permit this pod.
 
-Add-on Components for AWS
--------------------------
+AWS Add-on Components
+---------------------
+
+For operation in AWS two additional components are installed.
 
 romana-aws
 ~~~~~~~~~~

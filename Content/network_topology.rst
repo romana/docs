@@ -1,5 +1,5 @@
-Romana on Kubernetes - Network Topology
-=======================================
+Defining Network Topology
+=========================
 
 To make Romana aware of important details of your network, it is
 configured using a *network topology* configuration. This is a JSON

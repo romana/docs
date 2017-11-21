@@ -1,5 +1,5 @@
-Romana Route Publisher
-======================
+Route Publisher Add-on
+~~~~~~~~~~~~~~~~~~~~~~
 
 For Kubernetes clusters installed in datacenters, it is useful to enable
 the Romana Route Publisher add-on. It is used to automatically announce
@@ -42,8 +42,6 @@ it will first look for:
 Examples
 --------
 
-bird.conf (for both BGP and OSPF)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -70,8 +68,6 @@ bird.conf (for both BGP and OSPF)
 -  The ``include`` line is the hook to load the generated dynamic
    config. It should be in your ``bird.conf`` exactly as specified.
 
-publisher.conf for OSPF
-~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -98,8 +94,6 @@ publisher.conf for OSPF
    actual interfaces
 -  Add any additional, protocol-specific BIRD configuration to this file
 
-publisher.conf for BGP
-~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -128,7 +122,6 @@ publisher.conf for BGP
 -  bird.conf.192.168.35.0
 
 Installation
-------------
 
 First, the configuration files need to be loaded into a ``configmap``.
 
@@ -150,7 +143,6 @@ your master node.
     kubectl apply -f romana-route-publisher.yaml
 
 Verification
-------------
 
 Check that route publisher pods are running correctly
 
