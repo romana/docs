@@ -4,16 +4,16 @@ Romana Release v1.0 Documentation
 .. toctree::
    :maxdepth: 2
 
-   overview
-   Content/installation
-   Content/configuration
+   intro
+   Content/romana
+   Content/topology
+   Content/policies
+   Content/vips
+   Content/dns
+   Content/route_publisher
    Content/kubernetes
-   Content/openstack
-   Content/troubleshooting
-   Content/architecture
-   Content/how_it_works
-   Content/operations
-   Content/performance
-
+   Content/components
+   Content/network-topology
+   Content/contact
 
 
