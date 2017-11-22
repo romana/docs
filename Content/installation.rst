@@ -1,23 +1,71 @@
 Installation
-=============
+============
 
-Using Roman not only eliminates the VXLAN encapsulation, but also enables direct packet forwarding to the destination host, resulting in signiciant performance gains. The diagram below shows the path packets take when routed directly to their destination Hosts.
+For clusters created with ``kops`` or ``kubeadm`` with default settings, predefined YAML files are provided so that you can install easily by using ``kubectl apply``. If you are not using the default settings, some changes to the YAML files will be required - see the `notes <#installation-in-other-environments>`__, below.
 
-Installation item 1
--------------------
+If you have made your own customized installation of Kubernetes or used a different tool to create the cluster, then you should refer to the detailed `components <components.html>`__ page, and align the example configuration with the details specific to your cluster.
 
-Using Roman not only eliminates the VXLAN encapsulation, but also enables direct packet forwarding to the destination host, resulting in signiciant performance gains. The diagram below shows the path packets take when routed directly to their destination Hosts.
+Installation using kubeadm
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sub item 1
-^^^^^^^^^^
+Follow the Kubernetes cluster configuration guide for `Using kubeadm to Create a Cluster <https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions>`__, and complete steps 1 and 2. Then, to install Romana, run
 
-Using Roman not only eliminates the VXLAN encapsulation, but also enables direct packet forwarding to the destination host, resulting in signiciant performance gains. The diagram below shows the path packets take when routed directly to their destination Hosts.
+.. code:: bash
 
-Installation item 2
--------------------
+    kubectl apply -f https://raw.githubusercontent.com/romana/romana/master/docs/kubernetes/romana-kubeadm.yml
 
-Using Roman not only eliminates the VXLAN encapsulation, but also enables direct packet forwarding to the destination host, resulting in signiciant performance gains. The diagram below shows the path packets take when routed directly to their destination Hosts.
+Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs - are running in virtualbox - have cluster nodes in multiple subnets
 
-Installation item 3
--------------------
+Installation with kops
+~~~~~~~~~~~~~~~~~~~~~~
 
+As of kops v1.8, Romana is a built-in CNI networking provider that can be installed directly by folloing the kops `documentation <https://github.com/kubernetes/kops/blob/master/docs/networking.md#supported-cni-networking>`__. 
+
+If you are using an earlier version of kops, Romana can be installed by using the ``--networking cni`` option. You will need to SSH directly to your master node to install Romana after the cluster has finished launching.
+
+.. code:: bash
+
+    # Connect to the master node
+    ssh admin@master-ip
+    # Check that Kubernetes is running and that the master is in NotReady state
+    kubectl get nodes
+
+You should see output similar to the below example.
+
+::
+
+    NAME                                          STATUS            AGE       VERSION
+    ip-172-20-xx-xxx.us-west-2.compute.internal   NotReady,master   2m        v1.7.0
+
+Then, to install Romana, run
+
+.. code:: bash
+
+    kubectl apply -f https://raw.githubusercontent.com/romana/romana/master/docs/kubernetes/romana-kops.yml
+
+It will take a few minutes for the master node to become ready, launch deployments, and for other minion nodes to register and activate.
+
+You will also need to open port 4001 in the AWS Security Group for your "masters" instances. This can be edited in the AWS EC2 Management Console. Edit the rule for TCP Ports 1-4000 from "nodes", and change the
+range to 1-4001.
+
+The install for kops provides two additional components: - romana-aws: A tool that automatically configures EC2 Source-Dest-Check attributes for nodes in your Kubernetes cluster - romana-vpcrouter: A service that populates your cluster's VPC Routing tables with routes between AZs.
+
+Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs
+
+Installation in other environments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Please refer to the detailed `components <components.html>`__ page, and
+align the example configuration with the details specific to your
+cluster.
+
+Updates coming soon
+~~~~~~~~~~~~~~~~~~~
+
+These topics still need additional explanation, instructions and guides.
+
+-  Special Notes
+-  Custom range for Kubernetes Service IPs
+-  Custom range for Pod IPs
+-  Running in VirtualBox
+-  Running in multiple subnets
