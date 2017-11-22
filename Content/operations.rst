@@ -88,7 +88,7 @@ romana.
 
 
 Host sub-commands
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Adding a new host to romana cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,7 +121,7 @@ Showing details about specific hosts in a romana cluster
     romana host show [hostname1][hostname2]... [flags]
 
 Tenant sub-commands
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Create a new tenant in romana cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,7 +157,7 @@ Showing details about specific tenant in a romana cluster
     romana tenant show [tenantname1][tenantname2]... [flags]
 
 Segment sub-commands
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Add a new segment to a specific tenant in romana cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -186,7 +186,7 @@ Listing all segments for given tenants in a romana cluster
     romana segment list [tenantName][tenantName]... [flags]
 
 Policy sub-commands
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Sample Romana Policy
 ^^^^^^^^^^^^^^^^^^^^
