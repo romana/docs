@@ -1,8 +1,6 @@
 Operations
 ============
 
-Once installed, Romana requires little to no operational oversight. 
-
 Upgrading Romana on Kubernetes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -11,18 +9,18 @@ Romana can be upgraded by simply updating the conatiner image used in the deploy
 .. code:: bash
 
  kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/daemon:v2.0.0
- 
-kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.0
+ kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.0
 
  kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.0
+
 
 Upgrading the `romana-agent` requires the additional step of changing the "update strategy" from the default `OnDelete` to `RollingUpdate`. 
 
 This is done by running
 
-..code:: bash
+.. code:: bash
         
-        kubectl -n kube-system edit daemonset romana-agent
+   kubectl -n kube-system edit daemonset romana-agent
 
 Then changing `OnDelete` to `RollingUpdate`.
 
@@ -31,7 +29,9 @@ For upgrades from preview.3 to v2.0 GA, no etcd data migration is necessary.
 Romana Command Line Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Romana command line tools provide a romana API reference implementation.
+Since Romana is controlled via a cloud orchestration system, once it is installed and running requires little to no operational oversight. However, for certain adminstrative functions a CLI is provided.
+
+Romana command line tools provide a romana API reference implementation. 
 They provide a simple command line interface to interact with Romana
 services.
 
@@ -93,7 +93,7 @@ Host sub-commands
 Adding a new host to romana cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding a new host to romana cluster should be done using `static hosts` <https://github.com/romana/romana/blob/master/static_hosts.md>_ and this feature is only avaiable here for debugging assistance.
+Adding a new host to romana cluster should be done using `static hosts <https://github.com/romana/romana/blob/master/static_hosts.md>`__ and this feature is only avaiable here for debugging assistance.
 
 ::
 
