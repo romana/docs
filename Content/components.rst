@@ -6,18 +6,6 @@ components, and some add-on components for specific cloud providers.
 These are currently available for AWS, and components for other cloud
 providers will be developed in the future.
 
-**Essential Components**
-
--  `romana-etcd <#romana-etcd>`__
--  `romana-daemon <#romana-daemon>`__
--  `romana-listener <#romana-listener>`__
--  `romana-agent <#romana-agent>`__
-
-**AWS Add-on Components**
-
--  `romana-aws <#romana-aws>`__
--  `romana-vpcrouter <#romana-vpcrouter>`__
-
 Details of each component and example YAML configurations are provided below.
 
 Essential Components
