@@ -143,8 +143,6 @@ specified, or if the default Kubernetes Service IP is detected for
 A user-defined network topology can be provided by - loading the network
 topology file into a configmap using kubectl
 
-::
-
     ```bash
     kubectl -n kube-system create configmap romana-network-conf  --from-file=custom-network.json
     ```
@@ -158,38 +156,31 @@ topology file into a configmap using kubectl
 
 ``yaml           args:           - --initial-network=/etc/romana/network/custom-network.json``
 
-The path is a combination of the ``mountPath`` (eg:
-``/etc/romana/network``) and the filename inside the configmap (eg:
-``custom-network.json``).
+The path is a combination of the ``mountPath`` (eg: ``/etc/romana/network``) and the filename inside the configmap (eg: ``custom-network.json``).
 
 See the example
-`romana-daemon-custom-network <specs/romana-daemon-custom-network.yaml>`__
-YAML file.
+`romana-daemon-custom-network <specs/romana-daemon-custom-network.yaml>`__ YAML file.
 
 -  Network CIDR Overrides
 
-When using a built-in topology, the configuration specifies the CIDR
-that will be used for allocating IP addresses to pods.
+When using a built-in topology, the configuration specifies the CIDR that will be used for allocating IP addresses to pods.
 
-This value can be changed by specifying the ``--network-cidr-overrides``
-option in the ``romana-daemon`` deployment template
+This value can be changed by specifying the ``--network-cidr-overrides`` option in the ``romana-daemon`` deployment template
 
 ``yaml        args:        - --network-cidr-overrides=romana-network=100.96.0.0/11``
 
-The value for the CIDR should not overlap with any existing physical
-network ranges, or the Kubernetes ``service-cluster-ip-range``.
+The value for the CIDR should not overlap with any existing physical network ranges, or the Kubernetes ``service-cluster-ip-range``.
 
 romana-listener
 ~~~~~~~~~~~~~~~
 
-The ``romana-listener`` service is a background service that listens for
-events from the Kubernetes API Server and updates configuration in
-Romana. See the example `romana-listener <specs/romana-listener.yaml>`__
-YAML file.
+The ``romana-listener`` service is a background service that listens for events from the Kubernetes API Server and updates configuration in Romana. See the example `romana-listener <specs/romana-listener.yaml>`__ YAML file.
 
-The example contains four parts: - the ``romana-listener`` ClusterRole -
-the ``romana-listener`` ServiceAccount - the ``romana-listener``
-ClusterRoleBinding - the ``romana-listener`` Deployment
+The example contains four parts: 
+- the ``romana-listener`` ClusterRole 
+- the ``romana-listener`` ServiceAccount 
+- the ``romana-listener`` ClusterRoleBinding 
+- the ``romana-listener`` Deployment
 
 The following details must be modified to match your cluster's settings:
 

@@ -1,5 +1,5 @@
-Defining Network Topology
-=========================
+Network Topology
+================
 
 To make Romana aware of important details of your network, it is
 configured using a *network topology* configuration. This is a JSON
@@ -17,7 +17,7 @@ Network Topology Configuration Format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Network Topology JSON
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 .. code:: json
 
@@ -39,7 +39,7 @@ link the network definitions and the topology of hosts within the
 cluster.
 
 Network Definition JSON
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 .. code:: json
 
@@ -69,7 +69,7 @@ defines the number of addresses per block, eg: a value of /29 means the
 address block contains 8 addresses.
 
 Topology Mapping JSON
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 .. code:: json
 
@@ -89,7 +89,7 @@ A list of `Host Group <#host-group-json>`__ objects. This is a `topology
 map <../romana#topology-map>`__ for the list of networks.
 
 Host Group JSON
-~~~~~~~~~~~~~~~
+---------------
 
 .. code:: json
 

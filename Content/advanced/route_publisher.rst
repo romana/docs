@@ -124,8 +124,9 @@ Examples
 -  The ``neighbor`` address will likely be different for each subnet. To
    handle this, you can use multiple ``publisher.conf`` files with the
    appropriate network address suffixes, eg:
--  bird.conf.192.168.20.0
--  bird.conf.192.168.35.0
+
+ -  bird.conf.192.168.20.0
+ -  bird.conf.192.168.35.0
 
 Installation
 ------------
@@ -139,7 +140,7 @@ First, the configuration files need to be loaded into a ``configmap``.
    (the ``.`` indicates the current directory)
 
 Next, download the YAML file from
-`here <https://raw.githubusercontent.com/romana/romana/romana-2.0/docs/kubernetes/specs/romana-route-publisher.yaml>`__
+`here <https://raw.githubusercontent.com/romana/romana/master/docs/kubernetes/specs/romana-route-publisher.yaml>`__
 to your master node.
 
 Then, load the Romana Route Publisher add-on by running this command on

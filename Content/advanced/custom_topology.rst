@@ -54,22 +54,8 @@ comments (starting with '#'). Since JSON does not natively support
 comments, you would need to strip out those before using any of these
 sample config files.
 
-We have the following examples:
-
--  `Single flat network <#single-flat-network>`__
--  `Single, flat network with host-specific
-   prefixes <#single-flat-network-with-host-specific-prefixes>`__
--  `Using multiple networks <#using-multiple-networks>`__
--  `Using multiple topologies <#using-multiple-topologies>`__
--  `Restricting tenants to
-   networks <#restricting-tenants-to-networks>`__
--  `Deployment in a multi-rack data
-   center <#deployment-in-a-multi-rack-data-center>`__
--  `Deployment in a multi-zone, multi-rack data
-   center <#deployment-in-a-multi-zone-multi-rack-data-center>`__
-
-**Single, flat network**
-
+Single, flat network
+^^^^^^^^^^^^^^^^^^^^
 
 Use this configuration if you have hosts on a single network segment:
 All hosts can reach each other directly, no router is needed to forward
@@ -103,8 +89,8 @@ which the host will be assigned automatically.
         ]
     }
 
-**Single, flat network with host-specific prefixes**
-
+Single, flat network with host-specific prefixes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Same as above, but this time we want each host to have its own 'prefix
 group': All endpoints on a host should share the same prefix. This is
@@ -143,8 +129,8 @@ cluster, each host will live in its own prefix group.
         ]
     }
 
-**Using multiple networks**
-
+Using multiple networks
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes you may have multiple, smaller address ranges available for
 your pod or VM addresses. Romana can seamlessly use all of them. We show
@@ -175,8 +161,8 @@ this using the single, flat network topology from the first example.
         ]
     }
 
-**Using multiple topologies**
-
+Using multiple topologies
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is possible to define multiple topologies, which are handled by
 Romana at the same time. The following example shows this. We have a
@@ -224,8 +210,8 @@ cluster does not have more than four nodes).
         ]
     }
 
-**Restricting tenants to networks**
-
+Restricting tenants to networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Romana can ensure that tenants are given addresses from specific address
 ranges. This allows separation of traffic in the network, using
@@ -268,8 +254,8 @@ hosts - for each tenant.
         ]
     }
 
-**Deployment in a multi-rack data center**
-
+Deployment in a multi-rack data center
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The topology file is used to model your network. Let's say you wish to
 deploy a cluster across four racks in your data center. Let's assume
@@ -327,8 +313,8 @@ configured with the block routes to the hosts in the rack.
         ]
     }
 
-**Deployment in a multi-zone, multi-rack data center**
-
+Deployment in a multi-zone, multi-rack data center
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Larger clusters may be spread over multiple data centers, or multiple
 spines in the data center. Romana can manage multi-hierarchy prefix

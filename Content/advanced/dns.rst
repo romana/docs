@@ -61,7 +61,7 @@ DNS Testing
 
        dig @10.96.0.10 +short romana.kube-system.svc.cluster.local
 
--  Download this sample `nginx <files/nginx.yml>`__ yaml file and then
+-  Download this sample `nginx <https://raw.githubusercontent.com/wiki/romana/romana/files/nginx.yml>`__ yaml file and then
    use following command to create an nginx service with RomanaIP in it:
 
    ::

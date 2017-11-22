@@ -6,10 +6,10 @@ Romana Release v2.0 Documentation
 
    welcome
    Content/installation
-   Content/concepts
+   Content/networking
    Content/components
    Content/policies
-   Content/network_topology
+   Content/topology
    Content/advanced
    Content/contact
 
