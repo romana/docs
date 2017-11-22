@@ -20,6 +20,6 @@ Quick Start
 ---------------
 
 To get started with Romana on Kubernetes, go
-`here <docs/kubernetes/readme>`__.
+`here <Content/installation.html#installation>`__.
 
-For OpenStack installations, please `contact <contact>` us by email or on Slack.
+For OpenStack installations, please `contact <Content/contact.html>`__ us by email or on Slack.

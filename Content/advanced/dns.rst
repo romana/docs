@@ -53,7 +53,7 @@ Installation
    up and running.
 
 DNS Testing
--------
+-----------
 
 -  Run dig to see if dns is working properly using command:
 

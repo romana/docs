@@ -6,17 +6,19 @@ components, and some add-on components for specific cloud providers.
 These are currently available for AWS, and components for other cloud
 providers will be developed in the future.
 
--  Essential Components
+**Essential Components**
+
 -  `romana-etcd <#romana-etcd>`__
 -  `romana-daemon <#romana-daemon>`__
 -  `romana-listener <#romana-listener>`__
 -  `romana-agent <#romana-agent>`__
--  Add-on Components for AWS
+
+**AWS Add-on Components**
+
 -  `romana-aws <#romana-aws>`__
 -  `romana-vpcrouter <#romana-vpcrouter>`__
 
-Details of each component and example YAML configurations are provided
-below.
+Details of each component and example YAML configurations are provided below.
 
 Essential Components
 --------------------
@@ -36,16 +38,13 @@ Expose Kubernetes etcd
 If you are using the Kubernetes etcd storage for Romana, then it is
 exposed as a service. See the example
 `etcd-service <specs/etcd-service.yaml>`__ YAML file. To match this with
-a custom environment, you need to ensure \* The ``clusterIP`` is
-specified and a valid value for your cluster's
-``--service-cluster-ip-range``. The value for this range can be found in
-the configuration for your ``kube-apiserver``. \* The ``targetPort``
-must match the port used by clients to connect to etcd. You will find
-this value in the environment variable ``ETCD_LISTEN_CLIENT_URLS`` or
-the command-line option ``--listen-client-urls`` for etcd. \* The
-``selector`` lists labels that must match your etcd pods. Please ensure
-your etcd pods have a distinct label and that the ``selector`` matches
-that label.
+a custom environment, you need to ensure 
+
+* The ``clusterIP`` isspecified and a valid value for your cluster's ``--service-cluster-ip-range``. The value for this range can be found in the configuration for your ``kube-apiserver``. 
+
+* The ``targetPort`` must match the port used by clients to connect to etcd. You will find this value in the environment variable ``ETCD_LISTEN_CLIENT_URLS`` or the command-line option ``--listen-client-urls`` for etcd. 
+
+* The ``selector`` lists labels that must match your etcd pods. Please ensure your etcd pods have a distinct label and that the ``selector`` matches that label.
 
 Dedicated etcd storage
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -65,51 +64,36 @@ YAML file. This is not recommended for production purposes because it is
 not fault-tolerant - losing the master node means losing critical data
 and state for both Kubernetes and Romana.
 
-The example contains two parts that need to be aligned: \* the
-``romana-etcd`` Service \* the ``romana-etcd`` Deployment
+The example contains two parts that need to be aligned: 
+
+- the ``romana-etcd`` Service 
+- the ``romana-etcd`` Deployment
 
 The following details must be modified to match your cluster's settings:
 
 -  Service IP
 
-The Service IP for ``romana-etcd`` needs to be a valid value for your
-cluster's ``--service-cluster-ip-range`` CIDR, which is configured in
-your kube-apiserver.
+ The Service IP for ``romana-etcd`` needs to be a valid value for your  cluster's ``--service-cluster-ip-range`` CIDR, which is configured in  your kube-apiserver.
 
-The value needs to be specified in the ``romana-etcd`` service for
-``clusterIP``, and also in the ``romana-etcd`` deployment template for
-the ``--advertise-client-urls`` option.
+ The value needs to be specified in the ``romana-etcd`` service for ``clusterIP``, and also in the ``romana-etcd`` deployment template for the ``--advertise-client-urls`` option.
 
 -  Port
 
-The port for ``romana-etcd`` needs to be specified in the
-``romana-etcd`` service for ``port``, in the ``romana-etcd`` deployment
-template for the ``--listen-client-urls`` option, and in the
-``livenessProbe`` for the ``port``.
+ The port for ``romana-etcd`` needs to be specified in the ``romana-etcd`` service for ``port``, in the ``romana-etcd`` deployment template for the ``--listen-client-urls`` option, and in the ``livenessProbe`` for the ``port``.
 
 -  Target Port
 
-The Target Port for ``romana-etcd`` needs to be specified in the
-``romana-etcd`` service for ``targetPort``, and in the ``romana-etcd``
-deployment template for the ``--advertise-client-urls`` option.
+ The Target Port for ``romana-etcd`` needs to be specified in the ``romana-etcd`` service for ``targetPort``, and in the ``romana-etcd`` deployment template for the ``--advertise-client-urls`` option.
 
 -  Labels
 
-The same labels should be used in the ``romana-etcd`` service for
-``selector`` and in the ``romana-etcd`` deployment template for
-``labels`` in the metadata.
+ The same labels should be used in the ``romana-etcd`` service for ``selector`` and in the ``romana-etcd`` deployment template for ``labels`` in the metadata.
 
 -  Placement
 
-The pod should be forced to run on a specific master node. If your
-master has a unique ``node-role`` label, then that can be used in the
-``romana-etcd`` deployment template for the ``nodeSelector``. Otherwise,
-the ``nodeSelector`` should be updated to match the key and value for
-the master node's ``kubernetes.io/hostname``
+ The pod should be forced to run on a specific master node. If your master has a unique ``node-role`` label, then that can be used in the ``romana-etcd`` deployment template for the ``nodeSelector``. Otherwise, the ``nodeSelector`` should be updated to match the key and value for the master node's ``kubernetes.io/hostname``
 
-If your master node is *tainted* to prevent pods being scheduled there,
-the ``romana-etcd`` deployment template should include the matching
-``toleration`` to permit this pod.
+ If your master node is *tainted* to prevent pods being scheduled there, the ``romana-etcd`` deployment template should include the matching ``toleration`` to permit this pod.
 
 romana-daemon
 ~~~~~~~~~~~~~
@@ -118,40 +102,30 @@ The ``romana-daemon`` service is a central service used by other Romana
 components and provides an API for queries and changes. See the example
 `romana-daemon <specs/romana-daemon.yaml>`__ YAML file.
 
-The example contains two parts that need to be aligned: \* the
-``romana-daemon`` Service \* the ``romana-daemon`` Deployment
+The example contains two parts that need to be aligned: 
+
+- the ``romana-daemon`` Service 
+- the ``romana-daemon`` Deployment
 
 The following details must be modified to match your cluster's settings:
 
 -  Service IP
 
-The Service IP for ``romana-daemon`` needs to be a valid value for your
-cluster's ``--service-cluster-ip-range`` CIDR, which is configured in
-your kube-apiserver.
+ The Service IP for ``romana-daemon`` needs to be a valid value for your cluster's ``--service-cluster-ip-range`` CIDR, which is configured in your kube-apiserver.
 
-The value needs to be specified in the ``romana-daemon`` service for
-``clusterIP``.
+ The value needs to be specified in the ``romana-daemon`` service for ``clusterIP``.
 
 -  Placement
 
-The pod should be forced to run on a master node. If your master has a
-unique ``node-role`` label, then that can be used in the
-``romana-daemon`` deployment template for the ``nodeSelector``.
-Otherwise, the ``nodeSelector`` should be updated to match the key and
-value for the master node's ``kubernetes.io/hostname``
+ The pod should be forced to run on a master node. If your master has a unique ``node-role`` label, then that can be used in the ``romana-daemon`` deployment template for the ``nodeSelector``. Otherwise, the ``nodeSelector`` should be updated to match the key and value for the master node's ``kubernetes.io/hostname``
 
-If your master node is *tainted* to prevent pods being scheduled there,
-the ``romana-daemon`` deployment template should include the matching
-``toleration`` to permit this pod.
+ If your master node is *tainted* to prevent pods being scheduled there, the ``romana-daemon`` deployment template should include the matching ``toleration`` to permit this pod.
 
 -  Cloud Provider Integration
 
-If your Kubernetes cluster is running in AWS and configured with
-``--cloud=aws``, then you should provide that option to the
-romana-daemon.
+ If your Kubernetes cluster is running in AWS and configured with ``--cloud=aws``, then you should provide that option to the romana-daemon.
 
-This is done by uncommenting the ``args`` section and ``--cloud`` option
-in the ``romana-daemon`` deployment template.
+ This is done by uncommenting the ``args`` section and ``--cloud`` option in the ``romana-daemon`` deployment template.
 
 ``yaml        args:        - --cloud=aws``
 
@@ -221,15 +195,9 @@ The following details must be modified to match your cluster's settings:
 
 -  Placement
 
-The pod should be forced to run on a master node. If your master has a
-unique ``node-role`` label, then that can be used in the
-``romana-listener`` deployment template for the ``nodeSelector``.
-Otherwise, the ``nodeSelector`` should be updated to match the key and
-value for the master node's ``kubernetes.io/hostname``
+ The pod should be forced to run on a master node. If your master has a unique ``node-role`` label, then that can be used in the ``romana-listener`` deployment template for the ``nodeSelector``. Otherwise, the ``nodeSelector`` should be updated to match the key and value for the master node's ``kubernetes.io/hostname``
 
-If your master node is *tainted* to prevent pods being scheduled there,
-the ``romana-listener`` deployment template should include the matching
-``toleration`` to permit this pod.
+ If your master node is *tainted* to prevent pods being scheduled there, the ``romana-listener`` deployment template should include the matching ``toleration`` to permit this pod.
 
 romana-agent
 ~~~~~~~~~~~~
@@ -240,32 +208,26 @@ to integrate Kubernetes CNI mechanics with Romana, and manages
 node-specific configuration for routing and policy. See the example
 `romana-agent <specs/romana-agent.yaml>`__ YAML file.
 
-The example contains four parts: - the ``romana-agent`` ClusterRole -
-the ``romana-agent`` ServiceAccount - the ``romana-agent``
-ClusterRoleBinding - the ``romana-agent`` DaemonSet
+The example contains four parts: 
+
+- the ``romana-agent`` ClusterRole 
+- the ``romana-agent`` ServiceAccount 
+- the ``romana-agent`` ClusterRoleBinding 
+- the ``romana-agent`` DaemonSet
 
 The following details must be modified to match your cluster's settings:
 
 -  Service Cluster IP Range
 
-The Service Cluster IP Range for your Kubernetes cluster needs to be
-passed to the ``romana-agent``, matching the value that is configured in
-your kube-apiserver. A default value will be used if the default
-Kubernetes Service IP is detected for ``kops`` or ``kubeadm``
-(100.64.0.1 for kops, 10.96.0.1 for kubeadm).
+ The Service Cluster IP Range for your Kubernetes cluster needs to be passed to the ``romana-agent``, matching the value that is configured in your kube-apiserver. A default value will be used if the default Kubernetes Service IP is detected for ``kops`` or ``kubeadm`` (100.64.0.1 for kops, 10.96.0.1 for kubeadm).
 
-This value can be changed by specifying the
-``--service-cluster-ip-range`` option in the ``romana-daemon``
-deployment template
+ This value can be changed by specifying the ``--service-cluster-ip-range`` option in the ``romana-daemon`` deployment template
 
 ``yaml        args:        - --service-cluster-ip-range=100.64.0.0/13``
 
 -  Placement
 
-The pod should be forced to run on all Kubernetes nodes. If your master
-node(s) are *tainted* to prevent pods being scheduled there, the
-``romana-agent`` daemonset template should include the matching
-``toleration`` to permit this pod.
+ The pod should be forced to run on all Kubernetes nodes. If your master node(s) are *tainted* to prevent pods being scheduled there, the ``romana-agent`` daemonset template should include the matching ``toleration`` to permit this pod.
 
 AWS Add-on Components
 ---------------------
@@ -282,20 +244,15 @@ example `romana-aws <specs/romana-aws.yaml>`__ YAML file.
 
 The following details must be modified to match your cluster's settings:
 
--  Placement The pod should be forced to run on a master node. If your
-   master has a unique ``node-role`` label, then that can be used in the
-   ``romana-aws`` deployment template for the ``nodeSelector``.
-   Otherwise, the ``nodeSelector`` should be updated to match the key
-   and value for the master node's ``kubernetes.io/hostname``
+-  Placement 
+ 
+ The pod should be forced to run on a master node. If your master has a unique ``node-role`` label, then that can be used in the    ``romana-aws`` deployment template for the ``nodeSelector``.    Otherwise, the ``nodeSelector`` should be updated to match the key and value for the master node's ``kubernetes.io/hostname``
 
-If your master node is *tainted* to prevent pods being scheduled there,
-the ``romana-aws`` deployment template should include the matching
-``toleration`` to permit this pod.
+ If your master node is *tainted* to prevent pods being scheduled there, the ``romana-aws`` deployment template should include the matching ``toleration`` to permit this pod.
 
 -  IAM Permissions
 
-The IAM role for your master node(s) needs to include the permission to
-modify EC2 Instance Attributes.
+ The IAM role for your master node(s) needs to include the permission to modify EC2 Instance Attributes.
 
 romana-vpcrouter
 ~~~~~~~~~~~~~~~~
@@ -311,29 +268,17 @@ The following details must be modified to match your cluster's settings:
 
 -  ``romana-etcd`` Service IP and Port
 
-The Service IP and Target Port for ``romana-etcd`` need to be specified
-in the ``romana-vpcrouter`` deployment template as values for the
-``--etcd_addr`` and ``--etcd_port`` options.
+ The Service IP and Target Port for ``romana-etcd`` need to be specified in the ``romana-vpcrouter`` deployment template as values for the ``--etcd_addr`` and ``--etcd_port`` options.
 
--  Placement The pod should be forced to run on a master node. If your
-   master has a unique ``node-role`` label, then that can be used in the
-   ``romana-vpcrouter`` deployment template for the ``nodeSelector``.
-   Otherwise, the ``nodeSelector`` should be updated to match the key
-   and value for the master node's ``kubernetes.io/hostname``
+-  Placement The pod should be forced to run on a master node. If your master has a unique ``node-role`` label, then that can be used in the ``romana-vpcrouter`` deployment template for the ``nodeSelector``. Otherwise, the ``nodeSelector`` should be updated to match the key and value for the master node's ``kubernetes.io/hostname``
 
-If your master node is *tainted* to prevent pods being scheduled there,
-the ``romana-vpcrouter`` deployment template should include the matching
-``toleration`` to permit this pod.
+ If your master node is *tainted* to prevent pods being scheduled there, the ``romana-vpcrouter`` deployment template should include the matching ``toleration`` to permit this pod.
 
 -  IAM Permissions
 
-The IAM role for your master node(s) needs to include the permission to
-describe EC2 Resources, list and modify VPCs, and list and modify
-RouteTables.
+ The IAM role for your master node(s) needs to include the permission to describe EC2 Resources, list and modify VPCs, and list and modify RouteTables.
 
 -  Security Groups
 
-The vpcrouter component performs active liveness checks on cluster
-nodes. By default, it uses ICMPecho ("ping") requests for this purpose.
-Therefore, please ensure that your security group ruless allow for
-cluster nodes to exchange those messages.
+ The vpcrouter component performs active liveness checks on cluster nodes. By default, it uses ICMPecho ("ping") requests for this purpose. Therefore, please ensure that your security group ruless allow for cluster nodes to exchange those messages.
+

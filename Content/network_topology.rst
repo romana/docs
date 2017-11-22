@@ -19,7 +19,7 @@ Network Topology Configuration Format
 Network Topology JSON
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: json5
+.. code:: json
 
     {
         "networks": [ Network Definition, ... ]
@@ -41,7 +41,7 @@ cluster.
 Network Definition JSON
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: json5
+.. code:: json
 
     {
         "name": String,
@@ -71,7 +71,7 @@ address block contains 8 addresses.
 Topology Mapping JSON
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: json5
+.. code:: json
 
     {
         "networks": [ String, ... ],
@@ -91,7 +91,7 @@ map <../romana#topology-map>`__ for the list of networks.
 Host Group JSON
 ~~~~~~~~~~~~~~~
 
-.. code:: json5
+.. code:: json
 
     {
         "name": String,
@@ -125,15 +125,13 @@ grouping, but without defining hosts.
 A list of key-value pairs that correspond to Kubernetes ``node`` labels.
 These are used to assign Kubernetes nodes to a specific Host Group. In
 networks with multiple subnets, it is recommended that your Kubernetes
-nodes use the appropriate
-```failure-domain`` <https://kubernetes.io/docs/reference/labels-annotations-taints/>`__
-labels, and matching those labels and values with the ``assignment`` in
+nodes use the appropriate ``failure-domain`` `lables <https://kubernetes.io/docs/reference/labels-annotations-taints/>`__, and matching those labels and values with the ``assignment`` in
 your topology config.
 
 Host Definition JSON
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code:: json5
+.. code:: json
 
     {
         "name": String,
@@ -154,7 +152,7 @@ Examples
 --------
 
 -  `Network topology used for kubeadm
-   installations <../../containerize/targets/daemon/kubeadm-network.json>`__
+   installations <https://github.com/romana/romana/blob/master/containerize/targets/daemon/kubeadm-network.json>`__
 
 This example defines a single network named ``romana-network``, and maps
 to a topology containing 8 ``host-groups``. The empty groups are used as
@@ -162,7 +160,7 @@ placeholders, and Kubernetes nodes will be assigned to the host-groups
 with round-robin placement.
 
 -  `Network topology used for kops in us-west-1
-   region <../../containerize/targets/daemon/aws-us-west-1.json>`__
+   region <https://github.com/romana/romana/blob/master/containerize/targets/daemon/aws-us-west-1.json>`__
 
 This example defined a single network named ``romana-network``, and
 contains a host-group for each Availability Zone (AZ) within the
