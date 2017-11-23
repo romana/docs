@@ -25,7 +25,7 @@ Expose Kubernetes etcd
 
 If you are using the Kubernetes etcd storage for Romana, then it is
 exposed as a service. See the example
-`etcd-service <specs/etcd-service.yaml>`__ YAML file. To match this with
+`etcd-service <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/etcd-service.yaml>`__ YAML file. To match this with
 a custom environment, you need to ensure 
 
 * The ``clusterIP`` isspecified and a valid value for your cluster's ``--service-cluster-ip-range``. The value for this range can be found in the configuration for your ``kube-apiserver``. 
@@ -47,7 +47,7 @@ Standalone pod
 
 In simplified environments with a single master node, for demonstration
 or experimentation, you can create a standalone etcd instance for Romana
-to use. See the example `etcd-standalone <specs/etcd-standalone.yaml>`__
+to use. See the example `etcd-standalone <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/etcd-standalone.yaml>`__
 YAML file. This is not recommended for production purposes because it is
 not fault-tolerant - losing the master node means losing critical data
 and state for both Kubernetes and Romana.
@@ -88,7 +88,7 @@ romana-daemon
 
 The ``romana-daemon`` service is a central service used by other Romana
 components and provides an API for queries and changes. See the example
-`romana-daemon <specs/romana-daemon.yaml>`__ YAML file.
+`romana-daemon <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/romana-daemon.yaml>`__ YAML file.
 
 The example contains two parts that need to be aligned: 
 
@@ -120,7 +120,7 @@ The following details must be modified to match your cluster's settings:
 -  Initial Network Configuration
 
 To complete the configuration of Romana, a `network
-topology <network-topology>`__ needs to be configured. There are some
+topology <./networking.html#topology>`__ needs to be configured. There are some
 built-in network topologies that will be used if possible, but in custom
 environments, this will need to be provided by the user.
 
@@ -147,7 +147,7 @@ topology file into a configmap using kubectl
 The path is a combination of the ``mountPath`` (eg: ``/etc/romana/network``) and the filename inside the configmap (eg: ``custom-network.json``).
 
 See the example
-`romana-daemon-custom-network <specs/romana-daemon-custom-network.yaml>`__ YAML file.
+`romana-daemon-custom-network <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/romana-daemon-custom-network.yaml>`__ YAML file.
 
 -  Network CIDR Overrides
 
@@ -162,7 +162,7 @@ The value for the CIDR should not overlap with any existing physical network ran
 romana-listener
 ~~~~~~~~~~~~~~~
 
-The ``romana-listener`` service is a background service that listens for events from the Kubernetes API Server and updates configuration in Romana. See the example `romana-listener <specs/romana-listener.yaml>`__ YAML file.
+The ``romana-listener`` service is a background service that listens for events from the Kubernetes API Server and updates configuration in Romana. See the example `romana-listener <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/romana-listener.yaml>`__ YAML file.
 
 The example contains four parts: 
 - the ``romana-listener`` ClusterRole 
@@ -185,7 +185,7 @@ The ``romana-agent`` component is a local agent than runs on all
 Kubernetes nodes. It installs the CNI tools and configuration necessary
 to integrate Kubernetes CNI mechanics with Romana, and manages
 node-specific configuration for routing and policy. See the example
-`romana-agent <specs/romana-agent.yaml>`__ YAML file.
+`romana-agent <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/romana-agent.yaml>`__ YAML file.
 
 The example contains four parts: 
 
@@ -219,7 +219,7 @@ romana-aws
 The ``romana-aws`` service listens for node information from the
 Kubernetes API Server and disables the Source-Dest-Check attribute of
 the EC2 instances to allow pods to communicate between nodes. See the
-example `romana-aws <specs/romana-aws.yaml>`__ YAML file.
+example `romana-aws <https://github.com/romana/romana/tree/master/docs/kubernetes/specs/romana-aws.yaml>`__ YAML file.
 
 The following details must be modified to match your cluster's settings:
 

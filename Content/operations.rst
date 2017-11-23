@@ -29,7 +29,9 @@ For upgrades from preview.3 to v2.0 GA, no etcd data migration is necessary.
 Romana Command Line Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Since Romana is controlled via a cloud orchestration system, once it is installed and running requires little to no operational oversight. However, for certain adminstrative functions a CLI is provided.
+Since Romana is controlled via a cloud orchestration system, once it is installed and running requires little operational oversight. However, for certain adminstrative functions a CLI is provided. 
+
+.. note::  The Romana CLI retains certain Romana v1.x elements, including commands to directly administer default (i.e. pre-defined) `tenant` and `segment` labels. An update to the CLI will soon be available that allows for dynamic label creation.
 
 Romana command line tools provide a romana API reference implementation. 
 They provide a simple command line interface to interact with Romana
@@ -93,7 +95,7 @@ Host sub-commands
 Adding a new host to romana cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding a new host to romana cluster should be done using `static hosts <https://github.com/romana/romana/blob/master/static_hosts.md>`__ and this feature is only avaiable here for debugging assistance.
+Adding a new host to romana cluster should be done using `static hosts <https://github.com/romana/romana/blob/romana-1.x/static_hosts.md>`__ and this feature is only avaiable here for debugging assistance.
 
 ::
 
@@ -191,7 +193,7 @@ Policy sub-commands
 Sample Romana Policy
 ^^^^^^^^^^^^^^^^^^^^
 
-A sample romana policy is shown `here`_.
+A sample romana policy is shown `here <./policies.html#policy-definition-format>`__.
 
 Add a new policy to romana cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
