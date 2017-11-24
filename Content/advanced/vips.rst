@@ -21,7 +21,7 @@ Romana VIPs are useful for exposing services on datacenter LANs that
 only need simple kubeproxy load balancing across pods. Romana VIPs can
 also be used to expose individual pods when a stable IP is required,
 such as Cassandra and other Big Data applications. Romana VIPs work in
-conjunction with `Romana DNS <https://github.com/romana/romanadns>`__,
+conjunction with `Romana DNS <./advanced.html#romana-dns>`__,
 which can be deployed as a service discovery mechanism for individual
 pods exposed outside of a cluster.
 

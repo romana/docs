@@ -63,7 +63,7 @@ cluster's ``service-cluster-ip-range``.
 -  ``block_mask`` (required)
 
 The mask applied to `address
-blocks <../romana#romana-address-blocks>`__. This must be longer than
+blocks <./networking.html##romana-address-blocks>`__. This must be longer than
 the mask used for the CIDR, with a maximum value of 32. It implicitly
 defines the number of addresses per block, eg: a value of /29 means the
 address block contains 8 addresses.
@@ -86,7 +86,7 @@ from the top-level ``networks`` list.
 -  ``map`` (required)
 
 A list of `Host Group <#host-group-json>`__ objects. This is a `topology
-map <../romana#topology-map>`__ for the list of networks.
+map <./networking.html#topology-map>`__ for the list of networks.
 
 Host Group JSON
 ---------------
@@ -114,7 +114,7 @@ of "hosts" and "groups" can be specified.
 A list of Host Group objects. Only one of "hosts" and "groups" should be
 specified. This allows for nesting the definition of groups to match
 your topology at each level, eg: spine and leaf. Nested groups are
-treated as `prefix groups <../romana#prefix-groups>`__ for IP addressing
+treated as `prefix groups <./networking.html#prefix-groups>`__ for IP addressing
 and routing..
 
 An empty list may be specified. This indicates the lowest level of
