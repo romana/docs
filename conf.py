@@ -51,6 +51,7 @@ master_doc = 'index'
 project = u'Romana Documentation'
 copyright = u'2017, Pani Networks, Inc'
 author = u'Romana Team'
+scv_greatest_tag = True
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -120,9 +121,15 @@ todo_include_todos = False
 # a list of builtin themes.
 #
 import sphinx_rtd_theme
-#html_theme = 'sphinx_rtd_theme'
-html_theme = 'doc_theme'
+html_theme = 'sphinx_rtd_theme'
+#html_theme = 'doc_theme'
 #html_theme = 'classic'
+
+html_theme_options = {
+    'collapse_navigation': False,
+    'display_version': True,
+    'logo_only': True,
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -132,7 +139,8 @@ html_theme = 'doc_theme'
 
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ["_themes", sphinx_rtd_theme.get_html_theme_path()]
+#html_theme_path = ["_themes"]
+#html_theme_path = ["_themes", sphinx_rtd_theme.get_html_theme_path()]
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
@@ -169,7 +177,7 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
-# html_last_updated_fmt = None
+html_last_updated_fmt = None
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -199,15 +207,16 @@ html_static_path = ['_static']
 
 # If true, links to the reST sources are added to the pages.
 #
-# html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
 html_show_sphinx = False
+html_show_versions = True
+html_show_last_updated = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#
-# html_show_copyright = True
+# html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
