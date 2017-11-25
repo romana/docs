@@ -10,7 +10,6 @@ Romana can be upgraded by simply updating the conatiner image used in the deploy
 
  kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/daemon:v2.0.0
  kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.0
-
  kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.0
 
 

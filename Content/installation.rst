@@ -48,7 +48,10 @@ It will take a few minutes for the master node to become ready, launch deploymen
 You will also need to open port 4001 in the AWS Security Group for your "masters" instances. This can be edited in the AWS EC2 Management Console. Edit the rule for TCP Ports 1-4000 from "nodes", and change the
 range to 1-4001.
 
-The install for kops provides two additional components: - romana-aws: A tool that automatically configures EC2 Source-Dest-Check attributes for nodes in your Kubernetes cluster - romana-vpcrouter: A service that populates your cluster's VPC Routing tables with routes between AZs.
+The install for kops provides two additional components: 
+
+- `romana-aws <./components.html#romana-aws>`__: A tool that automatically configures EC2 Source-Dest-Check attributes for nodes in your Kubernetes cluster 
+- `romana-vpcrouter <./components.html#romana-vpcrouter>`__: A service that populates your cluster's VPC Routing tables with routes between AZs.
 
 Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs
 
