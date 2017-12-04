@@ -12,6 +12,8 @@ $ sphinx-versioning build -r 2.0-latest --show-banner --banner-main-ref 2.0-late
 
 `--banner-main-ref <branch/tag>` sets the link in the banner on other releases to the indicated branch/tag.
 
+All remote changes must be pushed to origin server (Github) for versioning to take effect.
+
 
 
 

@@ -6,7 +6,7 @@ For clusters created with ``kops`` or ``kubeadm`` with default settings, predefi
 If you have made your own customized installation of Kubernetes or used a different tool to create the cluster, then you should refer to the detailed `components <components.html>`__ page, and align the example configuration with the details specific to your cluster.
 
 Installation using kubeadm
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 Follow the Kubernetes cluster configuration guide for `Using kubeadm to Create a Cluster <https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#instructions>`__, and complete steps 1 and 2. Then, to install Romana, run
 
@@ -17,9 +17,16 @@ Follow the Kubernetes cluster configuration guide for `Using kubeadm to Create a
 Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs - are running in virtualbox - have cluster nodes in multiple subnets
 
 Installation with kops
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 As of kops v1.8, Romana is a built-in CNI networking provider that can be installed directly by folloing the kops `documentation <https://github.com/kubernetes/kops/blob/master/docs/networking.md#supported-cni-networking>`__. 
+
+If you install with kops, Romana v2.0.0 container images are pulled. Please check for the `latest Romana images <https://quay.io/repository/romana/daemon?tab=tags>`__ and what may have been added since the v2.0 release to see if an update is appropriate.
+
+To update Romana on a running kops cluster 
+
+Installation on earlier versions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are using an earlier version of kops, Romana can be installed by using the ``--networking cni`` option. You will need to SSH directly to your master node to install Romana after the cluster has finished launching.
 
@@ -56,19 +63,6 @@ The install for kops provides two additional components:
 Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs
 
 Installation in other environments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
-Please refer to the detailed `components <components.html>`__ page, and
-align the example configuration with the details specific to your
-cluster.
-
-Updates coming soon
-~~~~~~~~~~~~~~~~~~~
-
-These topics still need additional explanation, instructions and guides.
-
--  Special Notes
--  Custom range for Kubernetes Service IPs
--  Custom range for Pod IPs
--  Running in VirtualBox
--  Running in multiple subnets
+Please refer to the detailed `components <components.html>`__ page, or the `Advanced Topic <advanced.html>`__ for more detail on custom instalations.

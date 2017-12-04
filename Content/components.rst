@@ -236,12 +236,7 @@ The following details must be modified to match your cluster's settings:
 romana-vpcrouter
 ~~~~~~~~~~~~~~~~
 
-The ``romana-vpcrouter`` service is responsible for creating and
-maintaining routes between Availability Zones and Subnets for a
-Kubernetes cluster in AWS. It combines node state information from
-Kubernetes, AWS and internal monitoring, and route assignments from
-Romana, and uses this to add and modify routes in the VPC Routing
-Tables.
+The ``romana-vpcrouter`` service is responsible for creating and maintaining routes between Availability Zones and Subnets for a Kubernetes cluster in AWS. It combines node state information from Kubernetes, AWS and internal monitoring, and route assignments from Romana, and uses this to add and modify routes in the VPC Routing Tables.
 
 The following details must be modified to match your cluster's settings:
 
@@ -260,4 +255,7 @@ The following details must be modified to match your cluster's settings:
 -  Security Groups
 
  The vpcrouter component performs active liveness checks on cluster nodes. By default, it uses ICMPecho ("ping") requests for this purpose. Therefore, please ensure that your security group ruless allow for cluster nodes to exchange those messages.
+
+More details on vpc-router are available on GitHub, `here <https://github.com/romana/vpc-router/blob/master/README.md>`__.
+
 
