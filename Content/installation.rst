@@ -1,9 +1,12 @@
 Installation
 ============
 
-For clusters created with ``kops`` or ``kubeadm`` with default settings, predefined YAML files are provided so that you can install easily by using ``kubectl apply``. If you are not using the default settings, some changes to the YAML files may be required - see the `notes <#installation-in-other-environments>`__, below.
+Fundamental to the operation of Romana is a valid representation of the network. This representation is captured in a `Network Topology <./networking.html>`__. Default network topologies are provided that are suitable for installation on premesis on flat networks and in all AWS EC2 regions.
 
-If you have made your own customized installation of Kubernetes or used a different tool to create the cluster, then you should refer to the detailed `components <components.html>`__ page, and build a depoloyment manifest that includes details specific to your cluster.
+For clusters created with ``kops`` or ``kubeadm`` with default settings, predefined YAML files are provided as well. If you are not using the default settings some changes to the YAML files may be required - see the `notes <#installation-in-other-environments>`__, below.
+
+If you have your own custom installer for Kubernetes, or require a more complext network topology, please refer to the detailed `components <components.html>`__ page, and build a depoloyment manifest that includes details specific to your cluster. 
+
 
 Installation using kubeadm
 --------------------------

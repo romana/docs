@@ -9,7 +9,7 @@ Verifying Installation
 Kubernetes
 ~~~~~~~~~~
 
-Verify if basic romana ipam operations as below:
+Below are some simple commands you can use to verify Romana IPAM operations:
 
 .. code:: bash
 
