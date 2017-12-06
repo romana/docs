@@ -6,6 +6,7 @@ Romana Release v2.0 Documentation
 
    welcome
    Content/installation
+   Content/troublshooting	
    Content/operations
    Content/networking
    Content/components

@@ -1,9 +1,9 @@
 Installation
 ============
 
-For clusters created with ``kops`` or ``kubeadm`` with default settings, predefined YAML files are provided so that you can install easily by using ``kubectl apply``. If you are not using the default settings, some changes to the YAML files will be required - see the `notes <#installation-in-other-environments>`__, below.
+For clusters created with ``kops`` or ``kubeadm`` with default settings, predefined YAML files are provided so that you can install easily by using ``kubectl apply``. If you are not using the default settings, some changes to the YAML files may be required - see the `notes <#installation-in-other-environments>`__, below.
 
-If you have made your own customized installation of Kubernetes or used a different tool to create the cluster, then you should refer to the detailed `components <components.html>`__ page, and align the example configuration with the details specific to your cluster.
+If you have made your own customized installation of Kubernetes or used a different tool to create the cluster, then you should refer to the detailed `components <components.html>`__ page, and build a depoloyment manifest that includes details specific to your cluster.
 
 Installation using kubeadm
 --------------------------
@@ -14,7 +14,13 @@ Follow the Kubernetes cluster configuration guide for `Using kubeadm to Create a
 
     kubectl apply -f https://raw.githubusercontent.com/romana/romana/master/docs/kubernetes/romana-kubeadm.yml
 
-Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs - are running in virtualbox - have cluster nodes in multiple subnets
+You will need to customize this manifest if: 
+
+- you are using a non-default range for Kubernetes Service IPs 
+- want to specify your own IP range for Pod IPs 
+- are running in virtualbox - have cluster nodes in multiple subnets
+
+See the `components <components.html>`__ page, for more detail on how to build a depoloyment that includes details specific to your cluster.
 
 Installation with kops
 ----------------------
@@ -60,7 +66,10 @@ The install for kops provides two additional components:
 - `romana-aws <./components.html#romana-aws>`__: A tool that automatically configures EC2 Source-Dest-Check attributes for nodes in your Kubernetes cluster 
 - `romana-vpcrouter <./components.html#romana-vpcrouter>`__: A service that populates your cluster's VPC Routing tables with routes between AZs.
 
-Please see special notes below if - you are using a non-default range for Kubernetes Service IPs - want to specify your own IP range for Pod IPs
+See the `components <components.html>`__ page, for more detail on how to build a custom depoloyment if your cluster requires
+
+- a non-default range for Kubernetes Service IPs 
+- a specific network CIDR for your pod IPs
 
 Installation in other environments
 ----------------------------------
