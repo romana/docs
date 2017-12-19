@@ -29,6 +29,20 @@ Romana VIP failover requires that all nodes be on the same network
 segment. Addresses for Romana VIPs must be manually provisioned on the
 network.
 
+Tune Node Detection
+-------------------
+
+Default values for status update frequency and other controller monitors might delay node failure detection to more than 5 min.. 
+
+You can adjust the following parameters to tune VIP failover detection to around 45 sec.
+
+kubelet: `node-status-update-frequency=4s` (from default value 10s)
+controller-manager: `node-monitor-period=2s` (from default 5s)
+controller-manager: `node-monitor-grace-period=16s` (from default value 40s)
+controller-manager: `pod-eviction-timeout=30s` (from default value 5m)
+
+
+
 Example configuration
 ---------------------
 

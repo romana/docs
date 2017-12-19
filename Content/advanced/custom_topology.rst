@@ -44,6 +44,13 @@ Some useful terminology:
    aggregation.
 -  **Prefix group**: See "group".
 
+Topology Map Wizard
+-------------------
+
+If you need to configure a custom topology, you can use this simple `wizard <https://zwxda947vg.execute-api.us-west-1.amazonaws.com/dev/?>`__ to generate a topology map. It asks some simple questions about your network and automatically creates a topology map that you can download directly.
+
+
+
 Examples
 --------
 

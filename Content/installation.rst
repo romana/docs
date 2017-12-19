@@ -17,11 +17,12 @@ Follow the Kubernetes cluster configuration guide for `Using kubeadm to Create a
 
     kubectl apply -f https://raw.githubusercontent.com/romana/romana/master/docs/kubernetes/romana-kubeadm.yml
 
-You will need to customize this manifest if: 
+You will need to customize this manifest if you: 
 
-- you are using a non-default range for Kubernetes Service IPs 
+- use a non-default range for Kubernetes Service IPs 
 - want to specify your own IP range for Pod IPs 
-- are running in virtualbox - have cluster nodes in multiple subnets
+- are running in virtualbox 
+- have cluster nodes in multiple subnets
 
 See the `components <components.html>`__ page, for more detail on how to build a depoloyment that includes details specific to your cluster.
 
