@@ -4,13 +4,13 @@ Operations
 Upgrading Romana on Kubernetes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Romana can be upgraded by simply updating the conatiner image used in the deployment and/or daemonsets. 
+Romana can be upgraded by simply updating the conatiner image used in the deployment and/or daemonsets. The following commands update the Romana container images to the latest v2.0.1 images.
 
 .. code:: bash
 
- kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/daemon:v2.0.0
- kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.0
- kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.0
+ kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/daemon:v2.0.1
+ kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.1
+ kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.1
 
 
 Upgrading the `romana-agent` requires the additional step of changing the "update strategy" from the default `OnDelete` to `RollingUpdate`. 
