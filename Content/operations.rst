@@ -12,6 +12,15 @@ Romana can be upgraded by simply updating the conatiner image used in the deploy
  kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.1
  kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.1
 
+Upgrading on AWS
+----------------
+
+When upgrading Kubernetes clusters running in EC2 it is also necessary to upadate the ``aws`` and ``vpcrouter-romana-plugin`` container images.
+
+.. code:: bash
+
+ kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/aws:v2.0.1
+ kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/vpcrouter-romana-plugin:v2.0.1
 
 Upgrading the `romana-agent` requires the additional step of changing the "update strategy" from the default `OnDelete` to `RollingUpdate`. 
 
@@ -24,6 +33,8 @@ This is done by running
 Then changing `OnDelete` to `RollingUpdate`.
 
 For upgrades from preview.3 to v2.0 GA, no etcd data migration is necessary.
+
+
 
 Romana Command Line Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~
