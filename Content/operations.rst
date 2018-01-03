@@ -19,8 +19,8 @@ When upgrading Kubernetes clusters running in EC2 it is also necessary to upadat
 
 .. code:: bash
 
- kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/aws:v2.0.1
- kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/vpcrouter-romana-plugin:v2.0.1
+ kubectl -n kube-system set image deployment/romana-aws romana-aws=quay.io/romana/aws:v2.0.1
+ kubectl -n kube-system set image deployment/romana-vpcrouter romana-vpcrouter=quay.io/romana/vpcrouter-romana-plugin:v2.0.1
 
 Upgrading the `romana-agent` requires the additional step of changing the "update strategy" from the default `OnDelete` to `RollingUpdate`. 
 
