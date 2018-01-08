@@ -34,7 +34,15 @@ Then changing `OnDelete` to `RollingUpdate`.
 
 For upgrades from preview.3 to v2.0 GA, no etcd data migration is necessary.
 
+Upgrading Route Publisher
+-------------------------
 
+If you are running the Route Publisher the ``bird`` and ``route-publisher`` pods need to be upgraded as well.
+
+.. code:: bash
+
+ kubectl -n kube-system set image deployment/romana-bird romana-bird=quay.io/romana/x-bird:v2.0.1
+ kubectl -n kube-system set image daemonset/romana-route-publisher romana-route-publisher=quay.io/romana/x-route-publisher:v2.0.1
 
 Romana Command Line Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~
