@@ -37,7 +37,7 @@ For upgrades from preview.3 to v2.0 GA, no etcd data migration is necessary.
 Upgrading Route Publisher
 -------------------------
 
-If you are running the Route Publisher the ``bird`` and ``route-publisher`` pods need to be upgraded as well.
+If you are running the Route Publisher the ``bird`` and ``route-publisher`` container images need to be upgraded as well.
 
 .. code:: bash
 
