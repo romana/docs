@@ -44,6 +44,8 @@ Some useful terminology:
    aggregation.
 -  **Prefix group**: See "group".
 
+.. note:: Use caution when setting the address block size. It is not possible to change this setting after the cluster is built. Address blocks are assigned to nodes for each namespace, which may result in inefficient address use. The default value of 29 (i.e. /29 address block) is recommended since it is large enough to reduce route distribution overhead, but small enough not to waste IP addresses.
+
 Topology Map Wizard
 -------------------
 

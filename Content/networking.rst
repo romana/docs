@@ -131,6 +131,8 @@ blocks. Only one network route is required for all addresses within this
 block. Therefore, address blocks are an important contribution to `route
 aggregation <#term_aggregation>`__.
 
+.. note:: Use caution when setting the address block size. It is not possible to change this setting after the cluster is built. Address blocks are assigned to nodes for each namespace, which may result in inefficient address use. The default value of 29 (i.e. /29 address block) is recommended since it is large enough to reduce route distribution overhead, but small enough not to waste IP addresses.
+
 Let's look at an example to illustrate:
 
 Assume Romana has been configured to use addresses out of the
