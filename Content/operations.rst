@@ -4,7 +4,9 @@ Operations
 Upgrading Romana on Kubernetes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Romana can be upgraded by simply updating the conatiner image used in the deployment and/or daemonsets. The following commands update the Romana container images to the latest v2.0.1 images.
+Romana can be upgraded by simply updating the conatiner image used in the deployment and/or daemonsets. The following commands update the Romana container images to the latest images.
+
+.. note::  Be sure to use ``kubeclt`` commands that reference the specfic release you need. Commands shown below reference v2.0.1 only as an example
 
 .. code:: bash
 
@@ -20,7 +22,7 @@ When upgrading Kubernetes clusters running in EC2 it is also necessary to upadat
 .. code:: bash
 
  kubectl -n kube-system set image deployment/romana-aws romana-aws=quay.io/romana/aws:v2.0.1
- kubectl -n kube-system set image deployment/romana-vpcrouter romana-vpcrouter=quay.io/romana/vpcrouter-romana-plugin:v2.0.1
+ kubectl -n kube-system set image deployment/romana-vpcrouter romana-vpcrouter=quay.io/romana/vpcrouter-romana-plugin:latest
 
 Upgrading the `romana-agent` requires the additional step of changing the "update strategy" from the default `OnDelete` to `RollingUpdate`. 
 
