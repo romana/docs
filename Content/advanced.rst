@@ -6,7 +6,9 @@ Advanced Topics
 
 .. include:: ./advanced/route_publisher.rst
 
-.. include:: ./advanced/vips.rst
+.. include:: ./advanced/vips.rst 
+
+.. include:: ./advanced/l3_load_balancing.rst 
 
 .. include:: ./advanced/dns.rst
 
