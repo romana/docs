@@ -5,4 +5,9 @@ If you run your Kubernetes cluster on premises on a Layer 3 network that support
 
 `MetalLB <https://metallb.universe.tf/>`__ is an open source load balancer that configures network devices to load balance across Kubernetes nodes. It assigns IP addresses to Services and announces a route to these IP addresses from multiple nodes. 
 
-Detailed configuration instructions are available `here <https://master--metallb.netlify.com/configuration/romana/>`__
+Installation
+------------
+
+MetalLB requires that its BGP speaker announce its routes to Romana's Route Publisher, as well as some other configuration changes to ensure routes are distributed properly.
+
+Detailed configuration instructions are available `here <https://metallb.netlify.com/configuration/romana/>`__
