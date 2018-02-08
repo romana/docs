@@ -1,4 +1,4 @@
-Romaan ipRomana VIPs
+Romana VIPs
 ~~~~~~~~~~~
 
 Kubernetes users running on premises that want an easy way to expose
