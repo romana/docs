@@ -6,13 +6,13 @@ Upgrading Romana on Kubernetes
 
 Romana can be upgraded by simply updating the conatiner image used in the deployment and/or daemonsets. The following commands update the Romana container images to the latest images.
 
-.. note::  Be sure to use ``kubeclt`` commands that reference the specfic release you need. Commands shown below reference v2.0.1 only as an example.
+.. note::  Be sure to use ``kubeclt`` commands that reference the specfic release you need. Commands shown below reference v2.0.2 only as an example.
 
 .. code:: bash
 
- kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/daemon:v2.0.1
- kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.1
- kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.1
+ kubectl -n kube-system set image deployment/romana-daemon romana-daemon=quay.io/romana/daemon:v2.0.2
+ kubectl -n kube-system set image deployment/romana-listener romana-listener=quay.io/romana/listener:v2.0.2
+ kubectl -n kube-system set image daemonset/romana-agent romana-agent=quay.io/romana/agent:v2.0.2
 
 Upgrading the `romana-agent` requires the additional step of changing the "update strategy" from the default `OnDelete` to `RollingUpdate`. 
 
@@ -33,7 +33,7 @@ When upgrading Kubernetes clusters running in EC2 it is also necessary to upadat
 
 .. code:: bash
 
- kubectl -n kube-system set image deployment/romana-aws romana-aws=quay.io/romana/aws:v2.0.1
+ kubectl -n kube-system set image deployment/romana-aws romana-aws=quay.io/romana/aws:v2.0.2
  kubectl -n kube-system set image deployment/romana-vpcrouter romana-vpcrouter=quay.io/romana/vpcrouter-romana-plugin:latest
 
 Upgrading Route Publisher
@@ -43,8 +43,8 @@ If you are running the Route Publisher the ``bird`` and ``route-publisher`` cont
 
 .. code:: bash
 
- kubectl -n kube-system set image deployment/romana-bird romana-bird=quay.io/romana/x-bird:v2.0.1
- kubectl -n kube-system set image daemonset/romana-route-publisher romana-route-publisher=quay.io/romana/x-route-publisher:v2.0.1
+ kubectl -n kube-system set image deployment/romana-bird romana-bird=quay.io/romana/x-bird:v2.0.2
+ kubectl -n kube-system set image daemonset/romana-route-publisher romana-route-publisher=quay.io/romana/x-route-publisher:v2.0.2
 
 Romana Command Line Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~
