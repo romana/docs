@@ -1,4 +1,4 @@
-Romana VIPs
+Romaan ipRomana VIPs
 ~~~~~~~~~~~
 
 Kubernetes users running on premises that want an easy way to expose
@@ -46,8 +46,8 @@ You can adjust the following parameters to tune VIP failover detection to approx
 Example configuration
 ---------------------
 
-The example below shows a RomanaIP (192.168.99.101) configured on a node
-for the nginx service by adding the ``romanaip`` annotation to the spec.
+The example below shows a RomanaVIP (192.168.99.101) configured on a node
+for the nginx service by adding the ``romanavip`` annotation to the spec.
 
 ::
 
@@ -56,7 +56,7 @@ for the nginx service by adding the ``romanaip`` annotation to the spec.
     metadata:
       name: nginx
       annotations:
-        romanaip: '{"auto": false, "ip": "192.168.99.101"}'
+        romanavip: '{"auto": false, "ip": "192.168.99.101"}'
     ...
 
 The complete service spec is available

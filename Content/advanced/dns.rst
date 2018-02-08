@@ -62,13 +62,13 @@ DNS Testing
        dig @10.96.0.10 +short romana.kube-system.svc.cluster.local
 
 -  Download this sample `nginx <https://raw.githubusercontent.com/wiki/romana/romana/files/nginx.yml>`__ yaml file and then
-   use following command to create an nginx service with RomanaIP in it:
+   use following command to create an nginx service with RomanaVIP in it:
 
    ::
 
        kubectl create -f nginx.yml
 
--  This should create and load nginx service with RomanaIP, which should
+-  This should create and load nginx service with RomanaVIP, which should
    reflect in the dig result below:
 
    ::
